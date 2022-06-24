@@ -1,0 +1,37 @@
+﻿@using mvcstok1.Models.Entity
+
+@model List<kategoriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>kategori index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori id </th>
+        <th>Kategori Ad</th>
+    </tr>
+    <tbody>
+        @foreach (var kategoriler in Model)
+        {
+            <tr>
+                <td>@kategoriler.KATEGORİID</td>
+                <td>@kategoriler.KATEGORİAD</td>
+            
+                <td>
+                    <a href="/kategori/Sil/@kategoriler.KATEGORİID" class="btn btn-danger">SIL</a>
+                </td>
+               
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+
+<a href="/kategori/kategoriEkle/" class="btn btn-primary"> YENI KATEGORI EKLE</a>
+
+

@@ -1,0 +1,49 @@
+﻿@using mvcstok1.Models.Entity
+
+@model List<urunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Baki usta</h2>
+<table class="table table-bordered">
+    <tr>
+        <th> ÜRÜN ID</th>
+        <th> ÜRÜN AD</th>
+        <th> ÜRÜN KATEGORISI</th>
+        <th> ÜRÜN FIYATI</th>
+        <th> MARKA </th>
+        <th> STOK </th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <td>@urn.URUNID</td>
+                <td>@urn.URUNAD</td>
+                <td>@urn.URUNKATEGORİ</td>
+                <td>@urn.FİYAT</td>
+                <td>@urn.MARKA</td>
+                <td>@urn.STOK</td>
+                <td>
+                    <a href="/urun/Sil/@urn.URUNID" class="btn btn-danger">SIL</a>
+                </td>
+                <td>
+                    <a href="/urun/UrunGetir/@urn.URUNID" class="btn btn-success">GUNCELLE</a>
+
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+
+</table>
+
+<a href="/urun/UrunEkle/" class="btn btn-primary"> YENI URUN EKLE</a>
+
+

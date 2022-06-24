@@ -1,0 +1,45 @@
+﻿@using mvcstok1.Models.Entity
+
+@model List<musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Baki usta</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th> MUSTERI ID</th>
+        <th> MUSTERI AD</th>
+        <th> MUSTERI SOYAD</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var musteriler in Model)
+        {
+            <tr>
+                <td>@musteriler.MUSTERİID</td>
+                <td>@musteriler.MUSTERİAD</td>
+                <td>@musteriler.MUSTERİSOYAD</td>
+
+                <td>
+                    <a href="/musteri/Sil/@musteriler.MUSTERİID" class="btn btn-danger">SIL</a>
+                </td>
+
+                <td>
+                    <a href ="/musteri/MusteriGetir/@musteriler.MUSTERİID"class="btn btn-success">GUNCELLE</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+
+</table>
+
+<a href="/musteri/MusteriEkle/" class="btn btn-primary"> YENI MUSTERI EKLE</a>
+
+
